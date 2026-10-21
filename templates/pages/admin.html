@@ -1,0 +1,29 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Jobs{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Recent jobs</h1>
+  <p class="subtitle">Reference and email status only — submitted images and addresses are never shown.</p>
+
+  {% if jobs %}
+    <table>
+      <thead>
+        <tr><th>Reference</th><th>Created (UTC)</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+        {% for job in jobs %}
+          <tr>
+            <td>{{ job.id }}</td>
+            <td>{{ job.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ job.email_status }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="subtitle">No jobs yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Resize an Image{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Resize an Image</h1>
+  <p class="subtitle">Upload a JPEG or PNG and we'll email you a private download link, valid for one hour.</p>
+
+  {% if error %}
+    <div class="alert" role="alert">{{ error }}</div>
+  {% endif %}
+
+  <form method="post" action="/jobs" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="email">Send the link to</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="{{ values.get('email', '') }}"
+        class="{{ 'is-invalid' if field_errors.get('email') else '' }}"
+        placeholder="jane@example.com"
+      >
+      {% if field_errors.get('email') %}
+        <span class="field-error">{{ field_errors['email'] }}</span>
+      {% endif %}
+    </div>
+
+    <div class="form-group">
+      <label for="width">Maximum side, 64–1600 pixels</label>
+      <input
+        type="number"
+        id="width"
+        name="width"
+        min="64"
+        max="1600"
+        value="{{ values.get('width', 640) }}"
+        class="{{ 'is-invalid' if field_errors.get('width') else '' }}"
+      >
+      {% if field_errors.get('width') %}
+        <span class="field-error">{{ field_errors['width'] }}</span>
+      {% endif %}
+    </div>
+
+    <div class="form-group">
+      <label for="image">JPEG or PNG, up to 4 MiB and 8 megapixels</label>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/png,image/jpeg"
+        class="{{ 'is-invalid' if field_errors.get('image') else '' }}"
+      >
+      {% if field_errors.get('image') %}
+        <span class="field-error">{{ field_errors['image'] }}</span>
+      {% endif %}
+    </div>
+
+    <button type="submit" class="btn">Resize and email link</button>
+  </form>
+</div>
+{% endblock %}

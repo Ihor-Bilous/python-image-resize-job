@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your resized image is ready</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f3f4f6;padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="480" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#2563eb;padding:32px 40px;text-align:center;">
+              <h1 style="margin:0;color:#ffffff;font-size:20px;font-weight:600;">Your resized image is ready</h1>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:40px;text-align:center;">
+              <p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.6;">
+                Your <strong>{{ width }} × {{ height }}</strong> image is ready.
+              </p>
+              <img src="cid:{{ preview_cid }}" alt="Resized image preview" style="max-width:160px;border-radius:8px;margin:0 0 24px;">
+              <p style="margin:0 0 24px;">
+                <a href="{{ download_url }}" style="display:inline-block;padding:12px 28px;background-color:#2563eb;color:#ffffff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;">Download image</a>
+              </p>
+              <hr style="border:none;border-top:1px solid #e5e7eb;margin:0 0 24px;">
+              <p style="margin:0;color:#9ca3af;font-size:13px;line-height:1.6;">
+                This private link expires in one hour.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb;">
+              <p style="margin:0;color:#9ca3af;font-size:12px;">
+                Sent via <a href="https://mailtrap.io" style="color:#2563eb;text-decoration:none;">Mailtrap</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
